@@ -4,6 +4,7 @@
  */
 package mc.javatest.programmers.level2;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
@@ -43,42 +44,32 @@ public class DefenseGame {
      * @return
      */
     public int solution(int n, int k, int[] enemy) {
+        int answer = enemy.length;
+
         // k == enemy.lenght
         if (k == enemy.length) return k;
 
-        int cnt;
-        int min = k;
-        int max = enemy.length;
-        int mid = (min + max) / 2;
+        int army = n;
+        int shield = k;
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
 
-        while (true) {
-            PriorityQueue<Integer> pq = new PriorityQueue<>();
-            cnt = n;
+        for (int i = 0; i < enemy.length; i++) {
+            army -= enemy[i];
+            pq.add(enemy[i]);
 
-            for (int i = 0; i < mid; i++) {
-                pq.add(enemy[i]);
-            }
-
-            while (pq.size() > k) {
-                int tmp = pq.poll();
-                cnt -= tmp;
-
-                if (cnt <= 0) break;
-            }
-
-            if (cnt > 0) {
-                min = mid;
-                mid = ((min + max) / 2);
-
-                if (min == mid) return min;
-            } else if (cnt < 0) {
-                max = mid;
-                mid = ((min + max) / 2);
-
-                if (max == mid) return --max;
+            if (army < 0) {
+                if (shield > 0 && !pq.isEmpty()) {
+                    int t = pq.poll();
+                    army += t;
+                    shield--;
+                } else {
+                    answer = i;
+                    break;
+                }
             }
         }
 
+        return answer;
     }
 
 }
