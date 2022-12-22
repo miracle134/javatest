@@ -4,7 +4,7 @@
  */
 package mc.javatest.programmers.level2;
 
-import java.util.Arrays;
+import java.util.*;
 
 /**
  * packageName    : mc.javatest.programmers.level2
@@ -39,19 +39,23 @@ public class PickTangerine {
     public int solution(int k, int[] tangerine) {
         int answer = 0;
 
-        // 정렬
-        Arrays.sort(tangerine);
-        System.out.println(Arrays.toString(tangerine));
+        HashMap<Integer, Integer> hm = new HashMap<>();
 
-        int tmp = 0;
-        for (int i = tangerine.length - 1; i >= 0; i--) {
-            System.out.println(tangerine[i]);
-            if ((tmp == 0 || tmp != tangerine[i]) && k > 0) {
-                tmp = tangerine[i];
-                answer++;
-            }
+        // 크기별 귤 개수
+        for (int i : tangerine){
+            hm.put(i, hm.getOrDefault(i, 0)+1);
+        }
 
-            if(--k == 0) break;
+        // 리스트 전환하면서 큰 개수순으로 정렬
+        List<Map.Entry<Integer, Integer>> list = new ArrayList<>(hm.entrySet());
+        list.sort((v1, v2)-> Integer.compare(v2.getValue(), v1.getValue()));
+
+        // 상자에 담기
+        for(Map.Entry<Integer, Integer> e : list){
+            answer++;
+            k -= e.getValue();
+
+            if(k <= 0) break;
         }
 
         return answer;
