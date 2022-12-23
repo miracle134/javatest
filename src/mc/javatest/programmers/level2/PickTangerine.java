@@ -29,12 +29,12 @@ public class PickTangerine {
     }
 
     /**
-     * 1 ≤ k ≤ tangerine의 길이 ≤ 100,000
-     * 1 ≤ tangerine의 원소 ≤ 10,000,000
+     * 1 ≤ k ≤ tangerine 길이 ≤ 100,000
+     * 1 ≤ tangerine 의 원소 ≤ 10,000,000
      *
-     * @param k
-     * @param tangerine
-     * @return
+     * @param k 박스 귤 개수
+     * @param tangerine 귤 크기 리스트
+     * @return solution 리턴
      */
     public int solution(int k, int[] tangerine) {
         int answer = 0;
