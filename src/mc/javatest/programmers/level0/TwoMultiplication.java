@@ -1,6 +1,6 @@
 /**
  * MiracleCat Project
- * Copyright 2016 https://github.com/miracle134
+ * Copyright 2018 https://github.com/miracle134
  */
 package mc.javatest.programmers.level0;
 

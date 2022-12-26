@@ -6,32 +6,30 @@ package mc.javatest.programmers.level0;
 
 /**
  * packageName    : mc.javatest.programmers.level0
- * fileName       : TwoMultiplication
+ * fileName       : PizzaDivision
  * author         : MiracleCat
- * date           : 2022-12-25(025)
- * description    : 두 수의 몫
+ * date           : 2022-12-26
+ * description    : 피자 나눠 먹기 (1)
  * ===========================================================
  * DATE              AUTHOR             NOTE
  * -----------------------------------------------------------
- * 2022-12-25(025)        MiracleCat       최초 생성
+ * 2022-12-26        MiracleCat       최초 생성
  */
-public class TwoRest {
+public class PizzaDivision {
 
     public static void main(String[] args) {
-        TwoRest twoRest = new TwoRest();
+        PizzaDivision pizzaDivision = new PizzaDivision();
 
-        int num1 = 3;
-        int num2 = 2;
+        int n = 1;
 
-        System.out.println(twoRest.solution(num1, num2));
+        System.out.println(pizzaDivision.solution(n));
     }
 
     /**
-     * 0 ≤ num1 ≤ 100
-     * 0 ≤ num2 ≤ 100
+     * 1 ≤ n ≤ 100
      */
-    public int solution(int num1, int num2) {
-        int answer = num1 % num2;
+    public int solution(int n) {
+        int answer = n % 7 != 0 ? n / 7 + 1 : n / 7;
         return answer;
     }
 
