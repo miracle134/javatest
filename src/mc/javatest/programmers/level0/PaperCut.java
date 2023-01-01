@@ -29,10 +29,6 @@ public class PaperCut {
     /**
      * 0 < M, N < 100
      * 종이를 겹쳐서 자를 수 없습니다.
-     *
-     * @param M 가로길이
-     * @param N 세로길이
-     * @return int
      */
     public int solution(int M, int N) {
         int answer = 0;
