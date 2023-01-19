@@ -4,9 +4,6 @@
  */
 package mc.javatest.programmers.level2;
 
-import java.math.BigDecimal;
-import java.math.BigInteger;
-
 /**
  * packageName    : mc.javatest.programmers.level2
  * fileName       : N2Tilings
@@ -37,7 +34,7 @@ public class N2Tilings {
         int first = 0;
         int second = 1;
 
-        for(int i = 0; i < n; i++){
+        for (int i = 0; i < n; i++) {
             answer = (first + second) % 1000000007;
             first = second;
             second = answer;
