@@ -18,11 +18,11 @@ package mc.javatest.programmers.level0;
 public class AgePrint {
 
     public static void main(String[] args) {
-        AgePrint twoRest = new AgePrint();
+        AgePrint agePrint = new AgePrint();
 
         int age = 40;
 
-        System.out.println(twoRest.solution(age));
+        System.out.println(agePrint.solution(age));
     }
 
     /**
